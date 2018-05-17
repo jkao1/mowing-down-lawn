@@ -15,7 +15,8 @@ tokens = (
     "TORUS", 
     "SPHERE", 
     "BOX", 
-    "LINE", 
+    "LINE",
+    "TRIANGLE",
     "MESH", 
     "TEXTURE", 
     "SET", 
@@ -55,6 +56,7 @@ reserved = {
     "sphere" : "SPHERE",
     "box" : "BOX",
     "line" : "LINE",
+    "triangle" : "TRIANGLE",
     "mesh" : "MESH",
     "texture" : "TEXTURE",
     "set" : "SET",
@@ -181,6 +183,13 @@ def p_command_box(p):
                | BOX NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
                | BOX SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
                | BOX SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
+    commands.append(tuple(p[1:]))
+
+def p_command_triangle(p):
+    """command : TRIANGLE NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
+               | TRIANGLE NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
+               | TRIANGLE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
+               | TRIANGLE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
     commands.append(tuple(p[1:]))
 
 def p_command_line(p):

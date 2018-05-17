@@ -58,6 +58,8 @@ box [constants] x0 y0 z0 h w d [coord_system]
 			- x0 y0 z0 = one corner of the box
 			- h w d = height width and depth
 
+triangle [constants] x0 y0 z0 x1 y1 z1 x2 y2 z3 [coord_system]
+
 line [constants] x0 y0 z0 [coord_system0] x1 y1 z1 [coord_system1]
 			- NOTE: each endpoint of the line can be drawn
 			  in its own coordinate system.

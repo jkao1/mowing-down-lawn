@@ -16,9 +16,9 @@ def run(filename):
     light = [[0.5,
               0.75,
               1],
-             [0,
-              255,
-              255]]
+             [236,
+              120,
+              59]]
     areflect = [0.1,
                 0.1,
                 0.1]
@@ -58,7 +58,7 @@ def run(filename):
         elif name == "save":
             save_extension( screen, cmd[1] + cmd[2] )
 
-        elif name in "spheretorusbox":
+        elif name in "sphere|torus|box|triangle":
             if name == "sphere":
                 add_sphere(
                     polygons,
@@ -78,6 +78,13 @@ def run(filename):
                     polygons,
                     float(cmd[1]), float(cmd[2]), float(cmd[3]),
                     float(cmd[4]), float(cmd[5]), float(cmd[6]),
+                )
+            elif name == "triangle":
+                add_polygon(
+                    polygons,
+                    float(cmd[1]), float(cmd[2]), float(cmd[3]),
+                    float(cmd[4]), float(cmd[5]), float(cmd[6]),
+                    float(cmd[7]), float(cmd[8]), float(cmd[9]),
                 )
             matrix_mult( stack[-1], polygons )
             draw_polygons(
